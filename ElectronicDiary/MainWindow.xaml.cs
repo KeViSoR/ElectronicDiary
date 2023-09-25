@@ -24,5 +24,10 @@ namespace ElectronicDiary
         {
             InitializeComponent();
         }
+
+        private void SignBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
