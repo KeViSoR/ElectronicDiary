@@ -5,8 +5,128 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="900" Width="1600">
 
+    <Window.Resources>
+        <!-- Стиль хэдера -->
+        <Style x:Key="HeaderText">
+            <Setter Property="TextBlock.FontSize" Value="32"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Button.Background" Value="Transparent"/>
+            <Setter Property="Button.BorderThickness" Value="0"/>
+        </Style>
+
+        <Style x:Key="UnderHeaderText">
+            <Setter Property="TextBlock.FontSize" Value="24"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Button.Background" Value="Transparent"/>
+            <Setter Property="Button.BorderThickness" Value="0"/>
+        </Style>
+
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Image></Image><!--Лого !!!!!!! Вставить позже -->
+            
+            <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}">СШОР №1</TextBlock>
+            <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
+            
+            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource HeaderText}" Click="SignBtn_Click">Войти</Button>
+        </Grid>
+
+        <!-- Under Header -->
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{StaticResource UnderHeaderText}">Отделения</TextBlock>
+            <TextBlock x:Name="SportType" Grid.Column="1" Style="{StaticResource UnderHeaderText}">Здесь должен быть вид спорта</TextBlock> <!-- Здесь отображается выбранный вид спорта -->
+            <TextBlock Grid.Column="2" Style="{StaticResource UnderHeaderText}">Группа</TextBlock>
+            <TextBlock Grid.Column="3" Style="{StaticResource UnderHeaderText}">Количество учащихся</TextBlock>
+        </Grid>
+        
+        <!-- SportTypes -->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <DataGrid x:Name="SportGrid">
+                
+            </DataGrid>
+            
+            <!-- На выбор DataGrid и ListBox -->
+            
+            <!--<ListBox x:Name="SportList">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+        </Grid>
+
+        <!-- Coaches -->
+        <Grid Grid.Row="3" Grid.Column="1">
+            <DataGrid x:Name="CoachGrid">
+
+            </DataGrid>
+        </Grid>
+        
+        <!-- Main Menu-->
+        <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Начальный этап -->
+            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center">Начальный этап</TextBlock>
+            <DataGrid x:Name="InitialGroup" Grid.Column="1"></DataGrid>
+            <DataGrid x:Name="CountMemberInG" Grid.Column="2"></DataGrid>
+
+            <!-- Учебно‐тренировочный этап -->
+            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">Учебно‐тренировочный этап</TextBlock>
+            <DataGrid x:Name="TrainingGroup" Grid.Column="1" Grid.Row="1"></DataGrid>
+            <DataGrid x:Name="CountMemberTG" Grid.Column="2" Grid.Row="1"></DataGrid>
+
+            <!-- Этап спортивного совершенствования этап -->
+            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center">Этап спортивного совершенствования этап</TextBlock>
+            <DataGrid x:Name="ImprovementGroup" Grid.Column="1" Grid.Row="2"></DataGrid>
+            <DataGrid x:Name="CountMemberImG" Grid.Column="2" Grid.Row="2"></DataGrid>
+        </Grid>
     </Grid>
 </Window>
