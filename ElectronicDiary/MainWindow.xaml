@@ -78,19 +78,16 @@
         
         <!-- SportTypes -->
         <Grid Grid.Row="2" Grid.Column="1">
-            <DataGrid x:Name="SportGrid">
-                
-            </DataGrid>
-            
+
             <!-- На выбор DataGrid и ListBox -->
             
-            <!--<ListBox x:Name="SportList">
+            <ListBox x:Name="SportList">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"
+                        <TextBlock Text="{Binding Name}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>-->
+            </ListBox>
         </Grid>
 
         <!-- Coaches -->

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ElectronicDiary.Entity;
 
 namespace ElectronicDiary
 {
@@ -20,14 +21,26 @@ namespace ElectronicDiary
     /// </summary>
     public partial class MainWindow : Window
     {
+        SchoolDbContext context = new SchoolDbContext("Data Source=LAPTOP-PI8KR3G6\\SQLEXPRESS;Initial Catalog=SportSchoolVer4DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         public MainWindow()
         {
             InitializeComponent();
+            UpdateSportList();
         }
 
         private void SignBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void UpdateSportList()
+        {
+            SportList.ItemsSource = context.Departments.ToList();
+        }
+
+        private void SportList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CoachList.ItemsSource = context
         }
     }
 }
