@@ -113,6 +113,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
+            <!-- Список учащихся -->
             <DataGrid x:Name="ListStudents" Grid.Row="4" Grid.ColumnSpan="5">
                 
             </DataGrid>
