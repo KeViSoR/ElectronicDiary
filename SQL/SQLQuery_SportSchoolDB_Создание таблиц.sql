@@ -39,7 +39,7 @@ create table Departments
 	ChiefID int,
 	Logo varbinary(max) null,
 	CONSTRAINT FK_Departments_To_Sport foreign key(SportID) references Sport(ID) on delete set null,
-	CONSTRAINT FK_Departments_To_Persons foreign key(ChiefID) references Persons(ID) on delete set null
+	CONSTRAINT FK_Departments_To_Persons foreign key(ChiefID) references Trainers(ID) on delete set null
 )
 
 create table Stages
@@ -57,7 +57,7 @@ create table Groups
 	StageID int,
 	CONSTRAINT UQ_Groups UNIQUE(Name, DepartmentID, TrainerID),
 	CONSTRAINT FK_Groups_To_Departments foreign key(DepartmentID) references Departments(ID) on delete set null,
-	CONSTRAINT FK_Groups_To_Persons foreign key(TrainerID) references Persons(ID) on delete set null,
+	CONSTRAINT FK_Groups_To_Persons foreign key(TrainerID) references Trainers(ID) on delete set null,
 	CONSTRAINT FK_Groups_To_Stages foreign key(StageID) references Stages(ID) on delete set null
 )
 
