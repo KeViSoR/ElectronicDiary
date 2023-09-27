@@ -26,7 +26,7 @@
         </Style>
 
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -53,35 +53,37 @@
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <Image></Image><!--Лого !!!!!!! Вставить позже -->
-            
+
+            <Image></Image>
+            <!--Лого !!!!!!! Вставить позже -->
+
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}">СШОР №1</TextBlock>
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
-            
+
             <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource HeaderText}" Click="SignBtn_Click">Войти</Button>
         </Grid>
 
         <!-- Under Header -->
-        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,25,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition/>
+                <ColumnDefinition x:Name="SportsColumn" Width="1.5*"/>
+                <ColumnDefinition x:Name="GroupColumn" Width="1.5*"/>
+                <ColumnDefinition x:Name="CountColumn"/>
             </Grid.ColumnDefinitions>
             <TextBlock Style="{StaticResource UnderHeaderText}">Отделения</TextBlock>
-            <TextBlock x:Name="SportType" Grid.Column="1" Style="{StaticResource UnderHeaderText}">Здесь должен быть вид спорта</TextBlock> <!-- Здесь отображается выбранный вид спорта -->
+            <TextBlock x:Name="SportType" Grid.Column="1" Style="{StaticResource UnderHeaderText}">Здесь должен быть вид спорта</TextBlock>
+            <!-- Здесь отображается выбранный вид спорта -->
             <TextBlock Grid.Column="2" Style="{StaticResource UnderHeaderText}">Группа</TextBlock>
             <TextBlock Grid.Column="3" Style="{StaticResource UnderHeaderText}">Количество учащихся</TextBlock>
         </Grid>
-        
+
         <!-- SportTypes -->
         <Grid Grid.Row="2" Grid.Column="1">
 
             <!-- На выбор DataGrid и ListBox -->
-            
-            <ListBox x:Name="SportList">
+
+            <ListBox x:Name="SportList" SelectionChanged="SportList_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}"/>
@@ -92,14 +94,22 @@
 
         <!-- Coaches -->
         <Grid Grid.Row="3" Grid.Column="1">
-            <DataGrid x:Name="CoachGrid">
-
-            </DataGrid>
+            <ListBox x:Name="CoachList" SelectionChanged="CoachList_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding LastName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding FirstName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
-        
+
         <!-- Main Menu-->
         <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="3">
-            <Grid.ColumnDefinitions>
+            <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="1*"/>
@@ -110,20 +120,53 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            -->
             <!-- Начальный этап -->
+            <!--
             <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center">Начальный этап</TextBlock>
-            <DataGrid x:Name="InitialGroup" Grid.Column="1"></DataGrid>
-            <DataGrid x:Name="CountMemberInG" Grid.Column="2"></DataGrid>
+            <ListBox x:Name="InitialGroup" Grid.Column="1"></ListBox>
+            <ListBox x:Name="CountMemberInG" Grid.Column="2"></ListBox>
 
+            -->
             <!-- Учебно‐тренировочный этап -->
+            <!--
             <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">Учебно‐тренировочный этап</TextBlock>
-            <DataGrid x:Name="TrainingGroup" Grid.Column="1" Grid.Row="1"></DataGrid>
-            <DataGrid x:Name="CountMemberTG" Grid.Column="2" Grid.Row="1"></DataGrid>
+            <ListBox x:Name="TrainingGroup" Grid.Column="1" Grid.Row="1"></ListBox>
+            <ListBox x:Name="CountMemberTG" Grid.Column="2" Grid.Row="1"></ListBox>
 
+            -->
             <!-- Этап спортивного совершенствования этап -->
+            <!--
             <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center">Этап спортивного совершенствования этап</TextBlock>
-            <DataGrid x:Name="ImprovementGroup" Grid.Column="1" Grid.Row="2"></DataGrid>
-            <DataGrid x:Name="CountMemberImG" Grid.Column="2" Grid.Row="2"></DataGrid>
+            <ListBox x:Name="ImprovementGroup" Grid.Column="1" Grid.Row="2"></ListBox>
+            <ListBox x:Name="CountMemberImG" Grid.Column="2" Grid.Row="2"></ListBox>-->
+            <ListBox x:Name="TrainerList">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ElementName=SportsColumn, Path=ActualWidth}"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding StageGroup.Name}"/>
+                            <ListBox x:Name="InitialGroup" Grid.Column="1" ItemsSource="{Binding GroupCountPer}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="{Binding ElementName=GroupColumn,Path=ActualWidth}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=CountColumn,Path=ActualWidth}"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding TGroup.Name}" HorizontalAlignment="Center"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding CountPerson}" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 </Window>
