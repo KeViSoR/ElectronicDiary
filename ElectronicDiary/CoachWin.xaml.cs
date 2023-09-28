@@ -53,5 +53,10 @@ namespace ElectronicDiary
         {
 
         }
+
+        private void SignBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
