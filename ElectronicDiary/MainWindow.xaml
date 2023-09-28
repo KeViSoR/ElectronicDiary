@@ -167,14 +167,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <!-- Этап спортивного совершенствования -->
-            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center">Этап спортивного совершенствования этап</TextBlock>
-            <DataGrid x:Name="ImprovementGroup" Grid.Column="1" Grid.Row="2"></DataGrid>
-            <DataGrid x:Name="CountMemberImG" Grid.Column="2" Grid.Row="2"></DataGrid>
-            
-            <!-- !!!! -->
-
         </Grid>
     </Grid>
-    
+
 </Window>
