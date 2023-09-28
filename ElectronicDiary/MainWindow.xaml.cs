@@ -12,8 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ElectronicDiary.Entity;
-using System.ComponentModel;
 
 namespace ElectronicDiary
 {
@@ -28,39 +26,11 @@ namespace ElectronicDiary
         public MainWindow()
         {
             InitializeComponent();
-            UpdateSportList();
         }
+
         private void SignBtn_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void UpdateSportList()
-        {
-            SportList.ItemsSource = context.Departments.ToList();
-        }
-
-        private void SportList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SelDepartament = SportList.SelectedItem as Department;
-            CoachList.ItemsSource = context.Persons.Where(x=> context.Groups.Where(z=>z.DepartmentId == SelDepartament.Id).Select(y=>y.Id).Contains(x.Id)).ToList();
-        }
-
-        private void CoachList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            List<CategoryGroupTrainer> listsg = new List<CategoryGroupTrainer> { };
-            List<Group> sGroup = context.Groups.ToList();
-            //InitialGroup.ItemsSource;
-            SelTrainer = CoachList.SelectedItem as Person;
-            if (SelTrainer is null) return;
-            List<Stage>? listStage = context.Groups.Where(x=>x.TrainerId == SelTrainer.Id).Select(st=>st.Stage).Distinct().ToList();
-            List<SportsmensGroup> listSportsmensGroup = context.SportsmensGroups.ToList();
-            if (listStage is null) return;
-            foreach (var Stage in listStage)
-            {           
-                    listsg.Add(new CategoryGroupTrainer(Stage, SelTrainer.Id, sGroup, listSportsmensGroup));
-            }
-            TrainerList.ItemsSource = listsg;
         }
     }
 }
