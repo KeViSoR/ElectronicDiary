@@ -1,0 +1,139 @@
+﻿<Window x:Class="ElectronicDiary.GroupsList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElectronicDiary"
+        mc:Ignorable="d"
+        Title="GroupsList" Height="900" Width="1600">
+
+    <Window.Resources>
+        <!-- Стиль хэдера -->
+        <Style x:Key="HeaderText">
+            <Setter Property="TextBlock.FontSize" Value="32"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Button.Background" Value="Transparent"/>
+            <Setter Property="Button.BorderThickness" Value="0"/>
+        </Style>
+
+        <Style x:Key="HiddenText">
+            <Setter Property="TextBlock.FontSize" Value="24"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
+            <Setter Property="Button.Background" Value="Transparent"/>
+            <Setter Property="Button.BorderThickness" Value="0"/>
+        </Style>
+
+        <Style x:Key="HiddenBtn">
+            <Setter Property="TextBlock.FontSize" Value="24"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
+            <Setter Property="Button.Background" Value="Transparent"/>
+            <Setter Property="Button.BorderThickness" Value="1"/>
+            <Setter Property="Button.BorderBrush" Value="Black"/>
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Column="1" Grid.ColumnSpan="6">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Image></Image>
+            <!--Лого !!!!!!! Вставить позже -->
+
+            <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}">СШОР №1</TextBlock>
+            <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
+
+            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource HeaderText}" Click="SignBtn_Click">Войти</Button>
+        </Grid>
+
+        <!--Основной блок со списком спортсменов-->
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="3">
+            <DataGrid>
+                
+            </DataGrid>
+        </Grid>
+        
+        <!-- Вся информация -->
+        <Grid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Column 1-->
+            <TextBlock Style="{StaticResource HiddenText}">Место учёбы</TextBlock>
+
+            <TextBlock Grid.Row="1" Style="{StaticResource HiddenText}">Адрес проживания</TextBlock>
+
+            <TextBlock Grid.Row="2" Style="{StaticResource HiddenText}">Телефон</TextBlock>
+
+            <TextBlock Grid.Row="3" Style="{StaticResource HiddenText}">Email</TextBlock>
+
+            <!--Column 2-->
+            <TextBlock Grid.Column="2" Style="{StaticResource HiddenText}"/>
+
+            <TextBlock Grid.Column="2" Grid.Row="1" Style="{StaticResource HiddenText}"/>
+
+            <TextBlock Grid.Column="2" Grid.Row="2" Style="{StaticResource HiddenText}"/>
+
+            <TextBlock Grid.Column="2" Grid.Row="3" Style="{StaticResource HiddenText}"/>
+
+            <!--Column 3-->
+            <Button Grid.Column="2" Style="{StaticResource HiddenBtn}" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
+            <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource HiddenBtn}" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
+            <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource HiddenBtn}" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
+            <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource HiddenBtn}" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
+            
+            <!--Column 4-->
+            <TextBlock Grid.Column="3" Style="{StaticResource HiddenText}" Text="Дополнительная информация"/>
+            <Button Grid.Column="3" Style="{StaticResource HiddenBtn}" HorizontalAlignment="Right" Margin="0, 0, 20, 0" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
+
+            <TextBlock Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Style="{StaticResource HiddenText}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Grid>
+
+    </Grid>
+    
+    
+</Window>
