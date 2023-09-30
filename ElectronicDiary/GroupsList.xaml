@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
-        Title="GroupsList" Height="900" Width="1600">
+        Title="GroupsList" Height="900" Width="1600"
+        FontFamily="{DynamicResource GlobalFont}"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        
+        >
 
     <Window.Resources>
         <!-- Стиль хэдера -->
