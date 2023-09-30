@@ -32,15 +32,8 @@ namespace ElectronicDiary
             UpdateSportList();
         }
 
- 
-
         private void SignBtn_Click(object sender, RoutedEventArgs e)
-        {
-
- 
-
-     
-        }
+        { }
         private void UpdateSportList()
         {
             SportList.ItemsSource = context.Departments.ToList();
