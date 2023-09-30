@@ -8,7 +8,6 @@
         Title="MainWindow" Height="900" Width="1600"
         FontFamily="{DynamicResource GlobalFont}"
         Background="{DynamicResource WindowBackgroundBrush}">
-    <!--FontFamily="Book Antiqua"-->
         Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
