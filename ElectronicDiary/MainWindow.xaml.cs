@@ -1,4 +1,4 @@
-﻿using ElectronicDiary.Entity;
+using ElectronicDiary.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+ 
 
 namespace ElectronicDiary
 {
@@ -30,21 +32,27 @@ namespace ElectronicDiary
             UpdateSportList();
         }
 
+ 
+
         private void SignBtn_Click(object sender, RoutedEventArgs e)
         {
 
+ 
 
+     
         }
-
         private void UpdateSportList()
         {
             SportList.ItemsSource = context.Departments.ToList();
         }
 
+
+
         private void SportList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelDepartament = SportList.SelectedItem as Department;
-            CoachList.ItemsSource = context.Persons.Where(x => context.Groups.Where(z => z.DepartmentId == SelDepartament.Id).Select(y => y.Id).Contains(x.Id)).ToList();
+            //CoachList.ItemsSource = context.Groups.Where(z => z.DepartmentId == SelDepartament.Id).Select(y => y.Trainer).ToList();
+            CoachList.ItemsSource = context.Groups.Where(x => x.DepartmentId == SelDepartament.Id).Select(x => x.Trainer).Distinct().ToList();
         }
 
         private void CoachList_SelectionChanged(object sender, SelectionChangedEventArgs e)
