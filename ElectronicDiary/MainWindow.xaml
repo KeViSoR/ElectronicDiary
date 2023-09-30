@@ -8,7 +8,7 @@
         Title="MainWindow" Height="900" Width="1600"
         FontFamily="{DynamicResource GlobalFont}"
         Background="{DynamicResource WindowBackgroundBrush}"
-        Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <!-- Стиль хэдера -->
