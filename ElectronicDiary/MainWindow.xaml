@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <!-- Стиль хэдера -->
@@ -27,7 +27,7 @@
 
     </Window.Resources>
 
-    <Grid>
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0.4*"/>
@@ -94,7 +94,7 @@
 
         <!-- Coaches -->
         <Grid Grid.Row="3" Grid.Column="1">
-            <ListBox x:Name="CoachList" SelectionChanged="CoachList_SelectionChanged">
+            <ListBox x:Name="CoachList" SelectionChanged="CoachList_SelectionChanged" SelectedItem="{Binding SelTrainer}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -167,6 +167,42 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+
+
+        <!-- CoachesInfo -->
+        <GroupBox Grid.Row="5" Grid.Column="2" Header="Информация о тренере" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="ФИО:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.LastName}" Margin="5"/>
+                    <TextBlock Text="{Binding SelTrainer.FirstName}" Margin="5"/>
+                    <TextBlock Text="{Binding SelTrainer.SurName}" Margin="5"/>
+                    <TextBlock Text="Дата рождения:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.DateOfBirth, StringFormat=dd.MM.yyyy}" Margin="5"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Text="Место работы/учебы:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.PlaceOfStudyOrWork}" Margin="5"/>
+                    <TextBlock Text="Дата приема/поступления:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.ReceiptDate, StringFormat=dd.MM.yyyy}" Margin="5"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock Text="Телефон:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.TelNumber}" Margin="5"/>
+                    <TextBlock Text="E-mail:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.Email}" Margin="5"/>
+                    <TextBlock Text="Адрес:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.Adress}" Margin="5"/>
+                    <TextBlock Text="Доп.информация:" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelTrainer.AdditionalInfo}" Margin="5"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
     </Grid>
 
 </Window>
