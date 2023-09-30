@@ -25,7 +25,7 @@ namespace ElectronicDiary
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        SchoolDbContext context = new SchoolDbContext("Server=DOD;Database=Diary;Integrated Security=True;Trust Server Certificate=true");
+        SchoolDbContext context = new SchoolDbContext("Data Source=DESKTOP-1AUEF7A\\SQLEXPRESS;Database=SportSchoolVer4DB;Integrated Security=True;Trust Server Certificate=true");
         private Person selTrainer;
 
         public Department SelDepartament { get; set; }
