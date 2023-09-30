@@ -31,6 +31,16 @@ create table SportCategories
 	Validity int not null
 )
 
+create table Trainers
+(
+	ID int identity(1,1) primary key,
+	PersonsID int not null unique,
+	TrainerLogin nvarchar(30) not null check(TrainerLogin <> '') unique,
+	TrainerPassword nvarchar(30) not null check(TrainerPassword <> '') unique,
+	IsAdmin bit not null default 0,
+	CONSTRAINT FK_Trainers_To_Persons foreign key(PersonsID) references Persons(ID) on delete CASCADE
+)
+
 create table Departments
 (
 	ID int identity(1,1) primary key,
@@ -84,15 +94,22 @@ create table SportsmensSportCat
 	CONSTRAINT FK_SportsmensSportCat_To_SportCategories foreign key(SportCatID) references SportCategories(ID) on delete set null
 )
 
-create table Trainers
-(
-	ID int identity(1,1) primary key,
-	PersonsID int not null unique,
-	TrainerLogin nvarchar(30) not null check(TrainerLogin <> '') unique,
-	TrainerPassword nvarchar(30) not null check(TrainerPassword <> '') unique,
-	IsAdmin bit not null default 0,
-	CONSTRAINT FK_Trainers_To_Persons foreign key(PersonsID) references Persons(ID) on delete CASCADE
-)
+-----------------[ХР. ПРОЦЕДУРА: Добавление персоны------------
+GO
+CREATE PROCEDURE AddPerson
+    @LastName nvarchar(30),
+    @FirstName nvarchar(30),
+    @SurName nvarchar(20),
+    @DateOfBirth date,
+    @ReceiptDate date,
+    @PlaceOfStudyOrWork nvarchar(50),
+    @TelNumber nvarchar(13),
+    @Adress nvarchar(100),
+    @Email nvarchar(50),
+    @Photo varbinary(max),
+    @AdditionalInfo nvarchar(max)
 
-
-
+AS
+INSERT INTO Persons(LastName, FirstName, SurName, DateOfBirth, ReceiptDate, PlaceOfStudyOrWork, TelNumber, Adress, Email, Photo, AdditionalInfo) 
+VALUES(@LastName, @FirstName, @SurName, @DateOfBirth, @ReceiptDate, @PlaceOfStudyOrWork, @TelNumber, @Adress, @Email, @Photo, @AdditionalInfo)
+---------------------------------------------------------------
