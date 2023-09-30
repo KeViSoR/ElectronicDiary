@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1600"
         FontFamily="{DynamicResource GlobalFont}"
-        Background="{DynamicResource WindowBackgroundBrush}">
+        Background="{DynamicResource WindowBackgroundBrush}"
         Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
