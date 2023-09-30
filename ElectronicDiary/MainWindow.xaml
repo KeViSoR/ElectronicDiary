@@ -5,11 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600"
+        FontFamily="{DynamicResource GlobalFont}"
+        Background="{DynamicResource WindowBackgroundBrush}">
+    <!--FontFamily="Book Antiqua"-->
         Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <!-- Стиль хэдера -->
         <Style x:Key="HeaderText">
+            <!--<Setter Property="TextBlock.FontFamily" Value="Book Antiqua"/>-->
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBrush}" />
             <Setter Property="TextBlock.FontSize" Value="32"/>
             <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
@@ -18,12 +24,19 @@
         </Style>
 
         <Style x:Key="UnderHeaderText">
+            <Setter Property="TextBlock.FontFamily" Value="Book Antiqua"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBrush}" />
             <Setter Property="TextBlock.FontSize" Value="24"/>
             <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
             <Setter Property="Button.Background" Value="Transparent"/>
             <Setter Property="Button.BorderThickness" Value="0"/>
         </Style>
+
+        <!--<Style x:Key="MainGrid">
+            <Setter Property="Grid.Background" Value="#FFeff6fb" />
+
+        </Style>-->
 
     </Window.Resources>
 
@@ -33,13 +46,14 @@
             <RowDefinition Height="0.4*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <!--<RowDefinition Height="2*"/>-->
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="20*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <!-- Header -->
@@ -60,7 +74,7 @@
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}">СШОР №1</TextBlock>
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
 
-            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource HeaderText}" Click="SignBtn_Click">Войти</Button>
+            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" FontSize="32" Click="SignBtn_Click">Войти</Button>
         </Grid>
 
         <!-- Under Header -->
@@ -108,7 +122,11 @@
         </Grid>
 
         <!-- Main Menu-->
-        <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="3">
+        <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="228*"/>
+                <ColumnDefinition Width="1003*"/>
+            </Grid.ColumnDefinitions>
             <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="1.5*"/>
@@ -139,7 +157,7 @@
             <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center">Этап спортивного совершенствования этап</TextBlock>
             <ListBox x:Name="ImprovementGroup" Grid.Column="1" Grid.Row="2"></ListBox>
             <ListBox x:Name="CountMemberImG" Grid.Column="2" Grid.Row="2"></ListBox>-->
-            <ListBox x:Name="TrainerList">
+            <ListBox x:Name="TrainerList" Grid.ColumnSpan="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
