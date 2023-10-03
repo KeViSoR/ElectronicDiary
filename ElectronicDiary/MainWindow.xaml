@@ -125,36 +125,6 @@
                 <ColumnDefinition Width="228*"/>
                 <ColumnDefinition Width="1003*"/>
             </Grid.ColumnDefinitions>
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            -->
-            <!-- Начальный этап -->
-            <!--
-            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center">Начальный этап</TextBlock>
-            <ListBox x:Name="InitialGroup" Grid.Column="1"></ListBox>
-            <ListBox x:Name="CountMemberInG" Grid.Column="2"></ListBox>
-
-            -->
-            <!-- Учебно‐тренировочный этап -->
-            <!--
-            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">Учебно‐тренировочный этап</TextBlock>
-            <ListBox x:Name="TrainingGroup" Grid.Column="1" Grid.Row="1"></ListBox>
-            <ListBox x:Name="CountMemberTG" Grid.Column="2" Grid.Row="1"></ListBox>
-            -->
-            <!-- Этап спортивного совершенствования этап -->
-            <!--
-            <TextBlock FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center">Этап спортивного совершенствования этап</TextBlock>
-            <ListBox x:Name="ImprovementGroup" Grid.Column="1" Grid.Row="2"></ListBox>
-            <ListBox x:Name="CountMemberImG" Grid.Column="2" Grid.Row="2"></ListBox>-->
             <ListBox x:Name="TrainerList" Grid.ColumnSpan="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
