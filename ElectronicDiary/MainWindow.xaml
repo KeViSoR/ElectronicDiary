@@ -73,7 +73,7 @@
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}">СШОР №1</TextBlock>
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
 
-            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" FontSize="32" Click="SignBtn_Click">Войти</Button>
+            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" FontSize="32" VerticalAlignment="Center" Click="SignBtn_Click">Войти</Button>
         </Grid>
 
         <!-- Under Header -->
