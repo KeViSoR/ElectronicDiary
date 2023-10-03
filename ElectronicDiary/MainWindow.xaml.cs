@@ -25,7 +25,7 @@ namespace ElectronicDiary
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        SchoolDbContext context = new SchoolDbContext("Data Source=LAPTOP-PI8KR3G6\\SQLEXPRESS;Initial Catalog=SportSchoolVer4DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        SchoolDbContext context = new SchoolDbContext("Data Source=DESKTOP-1AUEF7A\\SQLEXPRESS;Initial Catalog=SportSchoolVer4DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         private Person selTrainer;
 
         public Department SelDepartament { get; set; }

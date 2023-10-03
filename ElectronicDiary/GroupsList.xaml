@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
         Title="GroupsList" Height="900" Width="1600"
+        FontSize="16"
         FontFamily="{DynamicResource GlobalFont}"
         Background="{DynamicResource WindowBackgroundBrush}"
         >
