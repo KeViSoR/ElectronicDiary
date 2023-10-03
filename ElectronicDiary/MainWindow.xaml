@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600"
+        Title="MainWindow" Height="800" Width="1500"
         FontFamily="{DynamicResource GlobalFont}"
         Background="{DynamicResource WindowBackgroundBrush}"
         WindowStartupLocation="CenterScreen">
@@ -73,7 +73,7 @@
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}">СШОР №1</TextBlock>
             <TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
 
-            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" FontSize="32" Click="SignBtn_Click">Войти</Button>
+            <!--<Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" FontSize="32" Click="SignBtn_Click">Войти</Button>-->
         </Grid>
 
         <!-- Under Header -->
@@ -165,7 +165,7 @@
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding StageGroup.Name}"/>
-                            <ListBox x:Name="InitialGroup" Grid.Column="1" ItemsSource="{Binding GroupCountPer}">
+                            <ListBox x:Name="InitialGroup" Grid.Column="1" ItemsSource="{Binding GroupCountPer}" MouseDoubleClick="MDC_Group" SelectionChanged="InitialGroup_SelectionChanged">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>

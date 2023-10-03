@@ -25,7 +25,7 @@ namespace ElectronicDiary
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        SchoolDbContext context = new SchoolDbContext("Data Source=DESKTOP-1AUEF7A\\SQLEXPRESS;Database=SportSchoolVer4DB;Integrated Security=True;Trust Server Certificate=true");
+        SchoolDbContext context = new SchoolDbContext("Data Source=LAPTOP-PI8KR3G6\\SQLEXPRESS;Initial Catalog=SportSchoolVer4DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         private Person selTrainer;
 
         public Department SelDepartament { get; set; }
@@ -37,6 +37,7 @@ namespace ElectronicDiary
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelTrainer)));
             }
         }
+        public GroupCountPerson SelGroup { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -74,6 +75,17 @@ namespace ElectronicDiary
                 listsg.Add(new CategoryGroupTrainer(Stage, SelTrainer.Id, sGroup, listSportsmensGroup));
             }
             TrainerList.ItemsSource = listsg;
+        }
+
+        private void MDC_Group(object sender, MouseButtonEventArgs e)
+        {
+            GroupsList groupsList = new GroupsList(SelGroup.TGroup.Id, context);
+            groupsList.Show();
+        }
+
+        private void InitialGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelGroup = (sender as ListBox).SelectedItem as GroupCountPerson;
         }
     }
 }

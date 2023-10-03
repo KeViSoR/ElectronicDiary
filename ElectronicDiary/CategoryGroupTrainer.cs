@@ -30,7 +30,7 @@ namespace ElectronicDiary
             }
         }
     }
-    internal class GroupCountPerson
+    public class GroupCountPerson
     {
         public Group TGroup { get; private set; }
         public int CountPerson { get; private set; }
