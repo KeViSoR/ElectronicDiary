@@ -80,8 +80,6 @@
 
             <TextBlock  x:Name="NameGroup" Text="{Binding ThisGroup.Name}" Grid.Column="1" Style="{StaticResource HeaderText}"/>
             <!--<TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
-
-            <Button Name="SignBtn" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource HeaderText}" Click="SignBtn_Click">Войти</Button>-->
         </Grid>
 
         <!--Основной блок со списком спортсменов-->
