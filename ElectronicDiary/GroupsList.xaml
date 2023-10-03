@@ -79,8 +79,8 @@
             <!--Лого !!!!!!! Вставить позже -->
 
             <TextBlock  x:Name="NameGroup" Text="{Binding ThisGroup.Name}" Grid.Column="1" Style="{StaticResource HeaderText}"/>
-            <!--<TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>
-        </Grid>-->
+            <!--<TextBlock Grid.Column="1" Style="{StaticResource HeaderText}" FontSize="32" Grid.Row="1">"Пример адреса"       +7(999)333-22-22</TextBlock>-->
+        </Grid>
 
             <!--Основной блок со списком спортсменов-->
             <ListBox x:Name="GroupList" SelectedItem="{Binding SelPerson}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="3">
@@ -117,26 +117,26 @@
                 </Grid.RowDefinitions>
                 <!--Column 1-->
 
-            <TextBlock Grid.Row="0" Style="{StaticResource HiddenText}">Адрес проживания</TextBlock>
+                <TextBlock Grid.Row="0" Style="{StaticResource HiddenText}">Адрес проживания</TextBlock>
 
-            <TextBlock Grid.Row="1" Style="{StaticResource HiddenText}">Телефон</TextBlock>
+                <TextBlock Grid.Row="1" Style="{StaticResource HiddenText}">Телефон</TextBlock>
 
-            <TextBlock Grid.Row="2" Style="{StaticResource HiddenText}">Email</TextBlock>
-            <TextBlock Grid.Row="3" Style="{StaticResource HiddenText}">Дата рождения</TextBlock>
-            <TextBlock Grid.Row="4" Style="{StaticResource HiddenText}">Дата поступления</TextBlock>
-            <TextBlock Grid.Row="5" Style="{StaticResource HiddenText}">Место работы</TextBlock>
+                <TextBlock Grid.Row="2" Style="{StaticResource HiddenText}">Email</TextBlock>
+                <TextBlock Grid.Row="3" Style="{StaticResource HiddenText}">Дата рождения</TextBlock>
+                <TextBlock Grid.Row="4" Style="{StaticResource HiddenText}">Дата поступления</TextBlock>
+                <TextBlock Grid.Row="5" Style="{StaticResource HiddenText}">Место работы</TextBlock>
 
-            <!--Column 2-->
-            <TextBlock Grid.Column="1" Text="{Binding Adress}" Style="{StaticResource HiddenText}"/>
+                <!--Column 2-->
+                <TextBlock Grid.Column="1" Text="{Binding Adress}" Style="{StaticResource HiddenText}"/>
 
-            <TextBlock Grid.Column="1" Text="{Binding TelNumber}" Grid.Row="1" Style="{StaticResource HiddenText}"/>
+                <TextBlock Grid.Column="1" Text="{Binding TelNumber}" Grid.Row="1" Style="{StaticResource HiddenText}"/>
 
                 <TextBlock Grid.Column="1" Text="{Binding Email}" Grid.Row="2" Style="{StaticResource HiddenText}"/>
                 <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding DateOfBirth, StringFormat=dd.MM.yyyy}" Style="{StaticResource HiddenText}"/>
                 <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}" Style="{StaticResource HiddenText}"/>
                 <TextBlock Grid.Column="1" Text="{Binding PlaceOfStudyOrWork}" Grid.Row="5" Style="{StaticResource HiddenText}"/>
 
-            <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource HiddenText}"/>
+                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource HiddenText}"/>
 
                 <!--Column 3-->
                 <Button Grid.Column="2" Style="{StaticResource HiddenBtn}" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
@@ -148,10 +148,8 @@
                 <TextBlock Grid.Column="3" Style="{StaticResource HiddenText}" Text="Дополнительная информация"/>
                 <Button Grid.Column="3" Style="{StaticResource HiddenBtn}" HorizontalAlignment="Right" Margin="0, 0, 20, 0" Visibility="Hidden" IsEnabled="False">Редактировать</Button>
 
-            <TextBlock Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Text="{Binding AdditionalInfo}" Style="{StaticResource HiddenText}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow"/>
-        </Grid>
+                <TextBlock Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Text="{Binding AdditionalInfo}" Style="{StaticResource HiddenText}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow"/>
+            </Grid>
 
         </Grid>
-
-    </Grid>
 </Window>
